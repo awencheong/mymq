@@ -31,6 +31,6 @@
 
 5. 客户端架构：
     * socket， 绑定一个专门读取socket数据包的线程 ，该线程将socket内容分发给不同的消息队列，例如: cmd[1], message[1024]
-    * cmd[1] ，绑定一个专门处理command的线程， 负责从cmd[1]中 读取，删除 cmd 消息； 或者发送cmd消息；
+    * cmd[1] ，绑定一个专门处理command的线程， 负责从cmd[1]中 读取，删除 cmd 消息；
     * message[1024]，绑定一个专门处理message的线程，负责从message[1024]中弹出 message 消息并处理（读取的同时也删除);
     * tmp[2048]， socket分发数据包给消息队列（例如cmd[1]）时，有可能出现cmd已满的情况，此时需要将消息缓存起来，即放入tmp[2048]中
